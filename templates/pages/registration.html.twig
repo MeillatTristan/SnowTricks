@@ -1,0 +1,26 @@
+{% extends "frontendTemplate.html.twig" %}
+
+{% block title %} SnowTricks | Inscription {% endblock %}
+
+{% block stylesheets %}
+  {{ encore_entry_link_tags('styleFrontend') }}
+{% endblock %}
+
+{% block body %}
+<div class="containerPadding">
+  <div class="containerForm">
+    <h1>Inscription</h1>
+  {{ form_start(form) }}
+  {{ form_errors(form) }}
+  {{ form_widget(form)}}
+    <input type="submit" value="Inscription">
+  {{ form_end(form) }}
+  </div>
+</div>
+{% endblock %}
+
+
+
+{% block javascript %}
+  <script src="{{ asset('app.js') }}"></script>
+{% endblock %}

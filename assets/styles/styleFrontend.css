@@ -1,0 +1,148 @@
+/* #f6f5fa */
+/* #d9dced */
+/* #dee8f2 */
+/* #c7d8e8 */
+/* #9ba9d0 */
+/* #233253 */
+
+*{
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body{
+  background-color: #f6f5fa;
+}
+
+.topbar{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.877);
+}
+
+.topbar ul{
+  display: flex;
+  justify-content: space-between;
+}
+
+.topbar li img{
+  height: 80px;
+  width: auto;
+}
+
+.topbar .containerLink{
+  display: flex;
+  align-items: center;
+  width: 500px;
+  justify-content: space-around;
+}
+
+.topbar li a{
+  font-size: 24px;
+  color: #233253;
+  font-weight: 600;
+}
+
+.topbar li .accueil:hover{
+  border-bottom: 2px solid #de005e;
+}
+
+.topbar li .inscription:hover{
+  border-bottom: 2px solid #ff3543;
+}
+
+.topbar li .connexion:hover{
+  border-bottom: 2px solid #ffd900;
+}
+
+body{
+  min-height: 100vh;
+}
+
+.containerBlockHeader{
+  background-image: url("../../public/assets/images/snowboardBg.jpg");
+  background-size: cover;
+  height: 100vh;
+  padding-top: 100px;
+  color: #233253;
+  display: flex;
+  justify-content: center;
+}
+
+.containerBlockHeader .containerText{
+  margin-top: 20%;
+}
+
+.containerBlockHeader h1{
+  font-size: 55px;
+  padding-left: 100px;
+}
+
+.containerBlockHeader h1::first-letter{
+  color: #de005e;
+}
+
+.containerBlockHeader h2{
+  font-size: 45px;
+  padding-left: 140px;
+}
+
+.containerBlockHeader h2::first-letter{
+  color: #de005e;
+}
+
+.containerPadding{
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.containerPadding .containerForm{
+  margin-top: 10%;
+}
+
+.containerPadding .containerForm h1{
+  color: #233253;
+  font-size: 40px;
+}
+
+.containerPadding .containerForm input{
+  padding: 10px;
+  width: 300px;
+  margin-top: 20px;
+  border: none;
+  border-bottom: #233253 solid 2px;
+  background-color: transparent;
+}
+
+.containerPadding .containerForm input::placeholder{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+}
+
+.containerPadding .containerForm input[type='submit']{
+  background-color: #de005e;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  width: 100%;
+  border: none;
+  box-shadow: 0px 0px 1px 0px rgba(222,0,94,0.75);
+  font-weight: 500;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 22px;
+  transition: 0.1s;
+}
+
+.containerPadding .containerForm input[type='submit']:hover{
+  margin-top: 20px;
+  padding: 12px 10px;
+  transition: 0.1s;
+  background-color: #d40059;
+}

@@ -1,0 +1,22 @@
+{% extends "frontendTemplate.html.twig" %}
+
+{% block title %} SnowTricks | Accueil {% endblock %}
+
+{% block stylesheets %}
+  {{ encore_entry_link_tags('styleFrontend') }}
+{% endblock %}
+
+{% block body %}
+<div class="containerBlockHeader">
+  <div class="containerText">
+    <h1>Bienvenue sur Snowtricks</h1>
+    <h2>La référence du snowboard</h2>
+  </div>
+</div>
+{% endblock %}
+
+
+
+{% block javascript %}
+  <script src="{{ asset('app.js') }}"></script>
+{% endblock %}

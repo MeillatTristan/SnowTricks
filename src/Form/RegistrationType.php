@@ -20,7 +20,7 @@ class RegistrationType extends AbstractType
                 ),
                 'label' => false
             ))
-            ->add('pseudo', TextType::class,array(
+            ->add('username', TextType::class,array(
                 'attr' => array(
                     'placeholder' => 'Pseudo'
                 ),

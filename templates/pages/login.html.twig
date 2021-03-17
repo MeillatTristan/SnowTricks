@@ -1,0 +1,26 @@
+{% extends "frontendTemplate.html.twig" %}
+
+{% block title %} SnowTricks | Inscription {% endblock %}
+
+{% block stylesheets %}
+  {{ encore_entry_link_tags('styleFrontend') }}
+{% endblock %}
+
+{% block body %}
+<div class="containerPadding">
+  <div class="containerForm">
+    <h1>Connexion</h1>
+    <form action="{{ path('login') }}" method="post">
+      <input type="text" required name="_username" placeholder="Email">
+      <input type="password" name="_password" id="password" placeholder="Mot de passe">
+      <input type="submit" value="Connexion">
+    </form>
+  </div>
+</div>
+{% endblock %}
+
+
+
+{% block javascript %}
+  <script src="{{ asset('app.js') }}"></script>
+{% endblock %}

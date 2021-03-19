@@ -11,9 +11,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Mailer\MailerInterface;
-use Symfony\Component\Mime\Email;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
@@ -159,22 +157,25 @@ class SecurityController extends AbstractController
             throw $this->createNotFoundException("Une erreur est survenue");
         }
 
-        $user->setResetToken(null);
-
-        $entityManager = $this->getDoctrine()->getManager();
-        $entityManager->persist($user);
-        $entityManager->flush();
-
         $form = $this->createForm(FormPasswordResetType::class);
         $form->handleRequest($request);
         
         if($form->isSubmitted() && $form->isValid()){
             $hash = $encoder->encodePassword($user, $user->getPassword());
             $user->setPassword($hash);
+
+            $this->session->getFlashBag()->add('message', 'Votre nouveau mot de passe à bien été enregistrer !');
+            return $this->redirectToRoute('login');
         }
 
-        $this->session->getFlashBag()->add('message', 'Votre nouveau mot de passe à bien été enregistrer !');
-        return $this->redirectToRoute('login');
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($user);
+        $entityManager->flush();
+        $user->setResetToken(null);
+
+        return $this->render('pages/formResetPassword.html.twig', [
+            "form" => $form->createView(    )
+        ]);
     }
 
 }

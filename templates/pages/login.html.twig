@@ -1,6 +1,6 @@
 {% extends "frontendTemplate.html.twig" %}
 
-{% block title %} SnowTricks | Inscription {% endblock %}
+{% block title %} SnowTricks | Connexion {% endblock %}
 
 {% block stylesheets %}
   {{ encore_entry_link_tags('styleFrontend') }}
@@ -15,6 +15,7 @@
       <input type="password" name="_password" id="password" placeholder="Mot de passe">
       <input type="submit" value="Connexion">
     </form>
+    <a href="forgot-password">Mot de passe oublié ?</a>
   </div>
 </div>
 {% endblock %}

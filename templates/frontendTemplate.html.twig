@@ -31,6 +31,23 @@
                 </div>
             </ul>
         </nav>
+
+        {% for flashMessage in app.session.flashbag.get('message') %}
+            {% if flashMessage is not empty %}
+                <div class="containerFlashMessage">
+                    {{ flashMessage }}       
+                </div>
+            {% endif %}
+        {% endfor %}
+
+        {% for flashMessage in app.session.flashbag.get('error') %}
+            {% if flashMessage is not empty %}
+                <div class="containerFlashError">
+                    {{ flashMessage }}       
+                </div>
+            {% endif %}
+        {% endfor %}
+        
         {% block body %}{% endblock %}
     </body>
 </html>

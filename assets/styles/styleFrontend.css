@@ -62,6 +62,26 @@ body{
   border-bottom: 2px solid #ffd900;
 }
 
+.containerFlashMessage{
+  background-color: #d1e9d8;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  padding-left: 40px;
+  margin-top: 80px;
+}
+
+.containerFlashError{
+  background-color: #fde0e0;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  padding-left: 40px;
+  margin-top: 80px;
+}
+
 body{
   min-height: 100vh;
 }
@@ -112,6 +132,7 @@ body{
 .containerPadding .containerForm form{
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .containerPadding .containerForm h1{
@@ -119,6 +140,10 @@ body{
   font-size: 40px;
   margin-bottom: 20px;
   text-align: center;
+}
+
+.containerPadding .containerForm p{
+  margin-bottom: 20px;
 }
 
 .containerPadding .containerForm input{
@@ -166,4 +191,13 @@ body{
   color: #d40059;
   font-weight: 600;
   margin-top: 7px;
+}
+
+.containerPadding a{
+  color: #233253;
+  text-align: center;
+  width: 100%;
+  display: block;
+  font-size: 18px;
+  font-weight: 500;
 }

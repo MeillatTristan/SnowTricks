@@ -1,0 +1,35 @@
+{% extends "frontendTemplate.html.twig" %}
+
+{% block title %} SnowTricks | Catégories {% endblock %}
+
+{% block stylesheets %}
+  {{ encore_entry_link_tags('styleFrontend') }}
+{% endblock %}
+
+{% block body %}
+    <div class="containerCategories">
+        <h1>Categories</h1>
+
+        <div class="table-wrapper">
+            <table class="fl-table">
+                <tbody>
+                    <tr>
+                        <th>Id</th>
+                        <td>{{ category.id }}</td>
+                    </tr>
+                    <tr>
+                        <th>Name</th>
+                        <td>{{ category.name }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="containerInput">
+            <a class="linkNew" href="{{ path('categories_index') }}">Retourner à la liste</a>
+            <a class="linkNew" href="{{ path('categories_edit', {'id': category.id}) }}">Editer</a>
+            {{ include('categories/_delete_form.html.twig') }}
+        </div>
+    </div>
+
+{% endblock %}

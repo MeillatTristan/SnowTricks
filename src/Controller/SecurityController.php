@@ -16,6 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Csrf\TokenGenerator\TokenGeneratorInterface;
 
 class SecurityController extends AbstractController
@@ -29,6 +30,7 @@ class SecurityController extends AbstractController
      * @Route("/inscription", name="registration")
      */
     public function registration(Request $request, EntityManagerInterface $manager, UserPasswordEncoderInterface $encoder, MailerInterface $mailer){
+        $this->denyAccessUnlessGranted('IS_ANONYMOUS');
         $user = new  User;
         $form = $this->createForm(RegistrationType::class, $user);
 
@@ -67,6 +69,7 @@ class SecurityController extends AbstractController
      * @Route("/connexion", name="login")
      */
     public function login(){
+        $this->denyAccessUnlessGranted('IS_ANONYMOUS');
         return $this->render('pages/login.html.twig');
     }
 

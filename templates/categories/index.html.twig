@@ -1,0 +1,48 @@
+{% extends "frontendTemplate.html.twig" %}
+
+{% block title %} SnowTricks | Catégories {% endblock %}
+
+{% block stylesheets %}
+  {{ encore_entry_link_tags('styleFrontend') }}
+{% endblock %}
+
+{% block body %}
+    <div class="containerCategories">
+        <h1>Categories</h1>
+
+        <div class="table-wrapper">
+            <table class="fl-table">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nom</th>
+                        <th>Afficher</th>
+                        <th>Editer</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for category in categories %}
+                    <tr>
+                        <td>{{ category.id }}</td>
+                        <td>{{ category.name }}</td>
+                        <td><a href="{{ path('categories_show', {'id': category.id}) }}">Afficher</a></td>
+                        <td><a href="{{ path('categories_edit', {'id': category.id}) }}">Editer</a></td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="3">Pas de résultat</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    <a class="linkNew" href="{{ path('categories_new') }}">Ajouter une catégorie</a>
+    </div>
+{% endblock %}
+
+
+
+{% block javascript %}
+  <script src="{{ asset('app.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "frontendTemplate.html.twig" %}
+
+{% block title %} SnowTricks | Catégories {% endblock %}
+
+{% block stylesheets %}
+  {{ encore_entry_link_tags('styleFrontend') }}
+{% endblock %}
+
+{% block body %}
+    <div class="containerCategories">
+        <div class="containerForm">
+            <h1>Modifier une catégorie</h1>
+            {{ include('categories/_form.html.twig', {'button_label': 'Modifier'}) }}
+        </div>
+        <a class="linkNew" href="{{ path('categories_index') }}">Retour à la liste</a>
+    </div>
+{% endblock %}
+
+
+
+{% block javascript %}
+  <script src="{{ asset('app.js') }}"></script>
+{% endblock %}

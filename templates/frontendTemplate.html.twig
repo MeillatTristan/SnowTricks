@@ -26,6 +26,7 @@
                         <li><a class="inscription" href="/inscription">S'inscrire</a></li>
                         <li><a class="connexion" href="{{ path('login') }}">Se connecter</a></li>
                     {% else %}
+                        <li><a class="inscription" href="/tricks/ajouter">Ajouter un tricks</a></li>
                         <li><a class="connexion" href="{{ path('logout') }}">Déconnexion</a></li>
                     {% endif %}
                 </div>

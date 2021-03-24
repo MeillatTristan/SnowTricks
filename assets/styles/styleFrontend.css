@@ -391,7 +391,7 @@ body{
 
 .containerTrick{
   margin-top: 150px;
-  width: 40%;
+  width: 60%;
   background-color: rgb(250, 250, 250);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border-radius: 4px;
@@ -403,7 +403,7 @@ body{
 }
 
 .containerTrick form{
-  width: 60%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -463,6 +463,7 @@ body{
   font-size: 17px;
   width: 130px;
   box-shadow: none;
+  cursor: pointer;
 }
 
 .containerTrick form .addCategories{
@@ -470,4 +471,78 @@ body{
   text-decoration: underline;
   margin-bottom: 20px;
   margin-top: -10px;
+}
+
+.containerTrick form .firstGroup{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.containerTrick form .firstGroup input{
+  width: 40%;
+  height: 40px;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.containerTrick form .firstGroup .containerCategory{
+  width: 40%;
+}
+
+.containerTrick form .containerMedia{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 30px;
+}
+
+.containerTrick form .containerMedia textarea{
+  width: 30%;
+}
+
+.containerTrick form .containerMedia .containerImages{
+  width: 55%;
+  border: solid 1px #ebebeb;
+  padding: 20px;
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.containerTrick form .containerMedia .containerImages label{
+  position: relative;
+  width: 50%;
+  background-color: #d40059;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.containerTrick form .containerMedia .containerImages p{
+  color: white;
+  font-weight: 500;
+  z-index: 2;
+}
+
+.containerTrick form .containerMedia .containerImages input{
+  display: none;
+}
+
+.containerTrick form .containerMedia .containerImages #containerPreview{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  align-items: center;
+  height: max-content;
+}
+
+.containerTrick form .containerMedia .containerImages #containerPreview .preview{
+  max-width: 30%;
+  height: auto;
 }

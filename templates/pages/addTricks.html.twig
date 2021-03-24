@@ -12,11 +12,23 @@
     <h1>Ajouter un tricks</h1>
     <span class="lign"></span>
     {{ form_start(form) }}
-    {{ form_widget(form.name) }}
-    <div class="containerMedia"></div>
-      {{ form_widget(form.description) }}
-      {{ form_widget(form.category) }}
-      <a class="addCategories" href="/categories/new">Ajouter une catégorie</a>
+    <div class="firstGroup">
+      {{ form_widget(form.name) }}
+      <div class="containerCategory">
+        {{ form_widget(form.category) }}
+        <a class="addCategories" href="/categories/new">Ajouter une catégorie</a>
+      </div>
+    </div>
+    <div class="containerMedia">
+      <div class="containerImages">
+        <label for="trick_images">
+          {{ form_widget(form.images) }}
+          <p>Ajouter des images ...</p>
+        </label>
+        <div id="containerPreview"></div>
+      </div>
+      {{ form_widget(form.description) }} 
+    </div>
       <div class="containerInput">
         <a href="#">Supprimer</a>
         <input type="submit" value="Valider">
@@ -31,4 +43,5 @@
 
 {% block javascript %}
   <script src="{{ asset('app.js') }}"></script>
+  {{ encore_entry_link_tags('preview.js') }}
 {% endblock %}

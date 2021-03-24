@@ -6,6 +6,7 @@ use App\Entity\Categories;
 use App\Entity\Trick;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -32,16 +33,19 @@ class TrickType extends AbstractType
         ->add('category', EntityType::class, array(
             'class' => Categories::class,
             'choice_label' => 'name',
-            'attr' => array(
-                'placeholder' => 'Nom de la catégorie'
-            ),
-            'label' => false
+            'label' => false,
+            'placeholder' => "Choisir une catégorie"
         ))
-        ->add('imageFile', VichFileType::class, [
-            'attr' => array(
-                'placeholder' => 'Nom de la catégorie'
-            )
-            ])  
+        ->add('images', FileType::class, [
+            'label' => false,
+            'multiple' => true,
+            'mapped' => false,
+            'required' => true,
+            'attr'     => [
+                'accept' => 'image/*',
+                'multiple' => 'multiple',
+            ]
+        ])
         ;
     }
 

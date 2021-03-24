@@ -3,8 +3,6 @@
 namespace App\Entity;
 
 use App\Repository\TrickRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -45,18 +43,12 @@ class Trick
      */
     private $dateUpdate;
 
-    /**
-     * @ORM\OneToMany(targetEntity=images::class, mappedBy="trick")
-     */
-    private $images;
-
     public function __construct()
     {
         $date = new \DateTime('now');
         $result = $date->format(('d-m-Y'));
         $this->setCreateDate($result);
         $this->setDateUpdate($result);
-        $this->images = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -120,36 +112,6 @@ class Trick
     public function setDateUpdate(string $dateUpdate): self
     {
         $this->dateUpdate = $dateUpdate;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|images[]
-     */
-    public function getImages(): Collection
-    {
-        return $this->images;
-    }
-
-    public function addImage(images $image): self
-    {
-        if (!$this->images->contains($image)) {
-            $this->images[] = $image;
-            $image->setTrick($this);
-        }
-
-        return $this;
-    }
-
-    public function removeImage(images $image): self
-    {
-        if ($this->images->removeElement($image)) {
-            // set the owning side to null (unless already changed)
-            if ($image->getTrick() === $this) {
-                $image->setTrick(null);
-            }
-        }
 
         return $this;
     }

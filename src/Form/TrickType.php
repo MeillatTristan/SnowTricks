@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Categories;
 use App\Entity\Trick;
+use App\Entity\Videos;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -43,6 +44,16 @@ class TrickType extends AbstractType
             'required' => true,
             'attr'     => [
                 'accept' => 'image/*',
+                'multiple' => 'multiple',
+            ]
+        ])
+        ->add('videos', FileType::class, [
+            'label' => false,
+            'multiple' => true,
+            'mapped' => false,
+            'required' => true,
+            'attr'     => [
+                'accept' => 'video/*',
                 'multiple' => 'multiple',
             ]
         ])

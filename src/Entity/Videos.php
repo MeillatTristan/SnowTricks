@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\ImagesRepository;
+use App\Repository\VideosRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=ImagesRepository::class)
+ * @ORM\Entity(repositoryClass=VideosRepository::class)
  */
-class Images
+class Videos
 {
     /**
      * @ORM\Id
@@ -23,8 +23,7 @@ class Images
     private $filename;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Trick::class, inversedBy="image")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\ManyToOne(targetEntity=Trick::class, inversedBy="videos")
      */
     private $trick;
 

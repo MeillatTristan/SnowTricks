@@ -20,7 +20,7 @@ class Videos
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $url;
+    private $filename;
 
     /**
      * @ORM\ManyToOne(targetEntity=Trick::class, inversedBy="videos")
@@ -32,14 +32,14 @@ class Videos
         return $this->id;
     }
 
-    public function getUrl(): ?string
+    public function getFilename(): ?string
     {
-        return $this->url;
+        return $this->filename;
     }
 
-    public function setUrl(string $url): self
+    public function setFilename(string $filename): self
     {
-        $this->url = $url;
+        $this->filename = $filename;
 
         return $this;
     }
@@ -55,9 +55,4 @@ class Videos
 
         return $this;
     }
-
-    public function __toString()
-{
-    return $this->getUrl();
-}
 }

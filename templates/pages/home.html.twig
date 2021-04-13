@@ -3,7 +3,7 @@
 {% block title %} SnowTricks | Accueil {% endblock %}
 
 {% block stylesheets %}
-{{ encore_entry_link_tags('app') }}
+  {{ encore_entry_link_tags('styleFrontend') }}
 {% endblock %}
 
 {% block body %}
@@ -12,101 +12,19 @@
     <h1>Bienvenue sur Snowtricks</h1>
     <h2>La référence du snowboard</h2>
   </div>
-  <div class="containerScrollTo">
-    <a href="#tricks"><i class="fas fa-arrow-down"></i></a>
-  </div>
-</div>
-
-<div id="tricks" class="containerTricks">
-  {% for trick in tricks %}
-  <div class="cardTrick">
-    <div class="containerImg">
-      {% if trick.image|first.filename is defined %}
-      <img src="assets/images/{{ trick.image|first.filename }}" alt="tricks images">
-      {% endif %}
-    </div>
-    <div class="containerLink">
-      <a class="title" class="showTrick" name="{{ trick.id }}">{{ trick.name }}</a>
-      {% if app.user %}
-      <div class="containerInput">
-        <a href="tricks/{{trick.id}}/update"><i class="far fa-edit"></i></a>
-        <a href="/tricks/{{trick.id}}/delete" class="delete"
-          onclick="return confirm('Etes-vous sur de vouloir supprimer ce tric');"><i class="far fa-trash-alt"></i></a>
-      </div>
-      {% endif %}
-    </div>
-  </div>
-  <div class="containerDisplayTricks" id="containerDisplayTricks{{ trick.id }}">
-    <div class="displayTrick">
-      <button class="close" name="{{ trick.id }}"><i class="fas fa-times"></i></button>
-      <div class="header">
-        {% if trick.image|first.filename is defined %}
-          <div class="containerImg">
-            <img src="assets/images/{{ trick.image|first.filename }}" alt="first image header trick">
-          </div>
-        {% endif %}
-        {% if app.user %}
-        <div class="containerInput">
-          <a href="tricks/{{trick.id}}/update"><i class="far fa-edit"></i></a>
-          <a href="/tricks/{{trick.id}}/delete" class="delete"
-            onclick="return confirm('Etes-vous sur de vouloir supprimer ce tric');"><i class="far fa-trash-alt"></i></a>
-        </div>
-        {% endif %}
-      </div>
-      
-      <div class="containerInformations">
-        <div class="container">
-          <h2>{{ trick.name }}</h2>
-          <p class="description">{{ trick.description }}</p>
-        </div>
-      </div>
-      <div class="informationImportant">
-        <div class="dateCrea">
-          <p>Date de publication : {{ trick.CreateDate }}</p>
-        </div>
-        <span>|</span>
-        <div class="group">
-          <p>Catégorie : {{ trick.category.name }}</p>
-        </div>
-        <span>|</span>
-        <div class="dateUpdate">
-          <p>Dernière mise à jour : {{ trick.dateUpdate }}</p>
-        </div>
-      </div>
-      <div class="containerAssets">
-        <div class="containerCarouImage">
-          {% for image in trick.image %}
-            <div class="containerImage">
-              <img src="assets/images/{{ image.filename }}" alt="">
-            </div>
-          {% endfor %}
-        </div>
-        <div class="containerCarouVideo">
-          {% for video in trick.videos %}
-            <div class="containerVideo">
-              {{ video.url | raw }}
-            </div>
-          {% endfor %}
-        </div>
-      </div>
-      <div class="leaveComment">
-        <!-- on vera -->
-      </div>
-    </div>
-  </div>
-  {% endfor %}
-</div>
-<div class="ContainerLoadMore">
-  <button id="LoadMore">Charger d'avantage</button>
 </div>
 {% endblock %}
 
 
 
 {% block javascript %}
+<<<<<<< HEAD
 <script src="{{ asset('app.js') }}"></script>
 {{ encore_entry_link_tags('app') }}
 {{ encore_entry_link_tags('loadMore') }}
 {{ encore_entry_link_tags('showTrick') }}
 
+=======
+  
+>>>>>>> parent of c433756 (show tricks and trik fiche)
 {% endblock %}

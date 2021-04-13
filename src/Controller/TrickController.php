@@ -6,9 +6,7 @@ use App\Entity\Images;
 use App\Entity\Trick;
 use App\Entity\Videos;
 use App\Form\TrickType;
-use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
-use Embera\Embera;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -27,8 +25,6 @@ class TrickController extends AbstractController
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $trick = new Trick();
-        
-
         $form = $this->createForm(TrickType::class, $trick);
         $form->handleRequest($request);
 
@@ -49,9 +45,15 @@ class TrickController extends AbstractController
 
             $videos = $form->get('videos')->getData();
             foreach ($videos as $video) {
-                $url = preg_replace("/\s*[a-zA-Z\/\/:\.]*youtu(be.com\/watch\?v=|.be\/)([a-zA-Z0-9\-_]+)([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.]*)/i","<iframe src=\"//www.youtube.com/embed/$2\" allowfullscreen></iframe>",$video);
-                $vid = new Videos;
-                $vid->setUrl($url);
+                $filename = md5(uniqid()) . '.' . $video->guessExtension();
+
+                $video->move(
+                    $this->getParameter('images_directory'),
+                    $filename
+                );
+
+                $vid = new Videos();
+                $vid->setFilename($filename);
                 $trick->addVideo($vid);
             }
 
@@ -59,23 +61,12 @@ class TrickController extends AbstractController
             $manager->persist($trick);
             $manager->flush();
 
-            // return $this->redirectToRoute('trickAdd');
+            return $this->redirectToRoute('trickAdd');
         }
 
         return $this->render('pages/addTricks.html.twig', [
             'trick' => $trick,
             'form' => $form->createView(),
         ]);
-    }
-
-    /**
-     * @Route("/{id}/delete", name="trickDelete")
-     */
-    public function deleteTrick(string $id, EntityManagerInterface $entityManager){
-        $trick = $this->getDoctrine()->getRepository(Trick::class)->find($id);
-        $entityManager->remove($trick);
-        $entityManager->flush();
-
-        return $this->redirectToRoute('home');
     }
 }

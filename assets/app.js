@@ -9,7 +9,7 @@
 console.log('yo');
 import './styles/styleFrontend.css';
 // start the Stimulus application
-// import './bootstrap';
+import './bootstrap';
 
 // this "modifies" the jquery module: adding behavior to it
 // the bootstrap module doesn't export/return anything

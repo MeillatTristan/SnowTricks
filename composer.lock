@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "45964ca77c47d2f662074e33fbe0d9af",
+    "content-hash": "09463e24d228f7f3f65a2bc07ea800cf",
     "packages": [
         {
             "name": "composer/package-versions-deprecated",
@@ -1545,61 +1545,6 @@
             "time": "2021-01-14T21:52:44+00:00"
         },
         {
-            "name": "fzaninotto/faker",
-            "version": "v1.9.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "848d8125239d7dbf8ab25cb7f054f1a630e68c2e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/848d8125239d7dbf8ab25cb7f054f1a630e68c2e",
-                "reference": "848d8125239d7dbf8ab25cb7f054f1a630e68c2e",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^5.3.3 || ^7.0"
-            },
-            "require-dev": {
-                "ext-intl": "*",
-                "phpunit/phpunit": "^4.8.35 || ^5.7",
-                "squizlabs/php_codesniffer": "^2.9.2"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.9-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Faker\\": "src/Faker/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "François Zaninotto"
-                }
-            ],
-            "description": "Faker is a PHP library that generates fake data for you.",
-            "keywords": [
-                "data",
-                "faker",
-                "fixtures"
-            ],
-            "support": {
-                "issues": "https://github.com/fzaninotto/Faker/issues",
-                "source": "https://github.com/fzaninotto/Faker/tree/v1.9.2"
-            },
-            "abandoned": true,
-            "time": "2020-12-11T09:56:16+00:00"
-        },
-        {
             "name": "jms/metadata",
             "version": "2.5.0",
             "source": {
@@ -1957,69 +1902,6 @@
                 }
             ],
             "time": "2020-12-14T13:15:25+00:00"
-        },
-        {
-            "name": "mpratt/embera",
-            "version": "2.0.17",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/mpratt/Embera.git",
-                "reference": "e5a1131773236d2f56a5416ef064328cc91a973e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/mpratt/Embera/zipball/e5a1131773236d2f56a5416ef064328cc91a973e",
-                "reference": "e5a1131773236d2f56a5416ef064328cc91a973e",
-                "shasum": ""
-            },
-            "require": {
-                "ext-json": "*",
-                "php": ">=5.6"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^8.3"
-            },
-            "suggest": {
-                "ext-curl": "Allow to fetch data using curl instead of using file_get_contents"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Embera\\": "src/Embera"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Michael Pratt",
-                    "email": "yo@michael-pratt.com",
-                    "homepage": "http://www.michael-pratt.com",
-                    "role": "Author/Developer"
-                }
-            ],
-            "description": "Oembed consumer library. Converts urls into their html embed code. Supports 150+ sites, such as Youtube, Twitter, vimeo, Instagram etc.",
-            "homepage": "https://github.com/mpratt/Embera",
-            "keywords": [
-                "Auto embed",
-                "Embed Text",
-                "Responsive Embeds",
-                "Url Embed",
-                "embed",
-                "instagram",
-                "oembed",
-                "twitter",
-                "vimeo",
-                "vine",
-                "youtube"
-            ],
-            "support": {
-                "issues": "https://github.com/mpratt/Embera/issues",
-                "source": "https://github.com/mpratt/Embera/tree/2.0.17"
-            },
-            "time": "2021-03-12T01:38:04+00:00"
         },
         {
             "name": "phpdocumentor/reflection-common",

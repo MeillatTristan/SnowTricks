@@ -6,6 +6,7 @@
  */
 
 // any CSS you import will output into a single css file (app.css in this case)
+console.log('yo');
 import './styles/styleFrontend.css';
 // start the Stimulus application
 // import './bootstrap';
@@ -21,5 +22,5 @@ import preview from './preview';
 
 import './add-collection-widget.js';
 import popup from './popup.js';
-import './loadMore';
-import './showTrick';
+import './loadMore.js';
+import './showTrick.js';

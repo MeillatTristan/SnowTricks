@@ -105,5 +105,8 @@
 
 {% block javascript %}
 <script src="{{ asset('app.js') }}"></script>
-{{ encore_entry_link_tags('popup.js') }}
+{{ encore_entry_link_tags('app') }}
+{{ encore_entry_link_tags('loadMore') }}
+{{ encore_entry_link_tags('showTrick') }}
+
 {% endblock %}

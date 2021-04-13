@@ -7,6 +7,7 @@ use App\Entity\Trick;
 use App\Entity\Videos;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -47,17 +48,17 @@ class TrickType extends AbstractType
                 'multiple' => 'multiple',
             ]
         ])
-        ->add('videos', FileType::class, [
-            'label' => false,
-            'multiple' => true,
-            'mapped' => false,
-            'required' => true,
-            'attr'     => [
-                'accept' => 'video/*',
-                'multiple' => 'multiple',
-            ]
-        ])
-        ;
+        ->add('videos', CollectionType::class, [
+            // each entry in the array will be an "email" field
+            'entry_type' => VideosType::class,
+            'allow_add' => true,
+            'allow_delete' => true,
+            'by_reference' => false,
+            'attr' => [
+                'placeholder' => "Url d'une vidéo youtube",
+            ],
+            'entry_options' => ['label' => false]
+        ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

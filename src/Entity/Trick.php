@@ -30,7 +30,7 @@ class Trick
     private $description;
 
     /**
-     * @ORM\ManyToOne(targetEntity=categories::class, inversedBy="tricks")
+     * @ORM\ManyToOne(targetEntity=Categories::class, inversedBy="tricks")
      * @ORM\JoinColumn(nullable=false)
      */
     private $category;
@@ -51,9 +51,14 @@ class Trick
     private $image;
 
     /**
-     * @ORM\OneToMany(targetEntity=videos::class, mappedBy="trick", orphanRemoval=true, cascade={"persist"})
+     * @ORM\OneToMany(targetEntity=Videos::class, mappedBy="trick", orphanRemoval=true, cascade={"persist"})
      */
     private $videos;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Comment::class, mappedBy="trick")
+     */
+    private $Comment;
 
     public function __construct()
     {
@@ -63,6 +68,7 @@ class Trick
         $this->setDateUpdate($result);
         $this->image = new ArrayCollection();
         $this->videos = new ArrayCollection();
+        $this->Comment = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -184,6 +190,48 @@ class Trick
             // set the owning side to null (unless already changed)
             if ($video->getTrick() === $this) {
                 $video->setTrick(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getDateCreate(): ?string
+    {
+        return $this->dateCreate;
+    }
+
+    public function setDateCreate(string $dateCreate): self
+    {
+        $this->dateCreate = $dateCreate;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Comment[]
+     */
+    public function getComment(): Collection
+    {
+        return $this->Comment;
+    }
+
+    public function addComment(Comment $comment): self
+    {
+        if (!$this->Comment->contains($comment)) {
+            $this->Comment[] = $comment;
+            $comment->setTrick($this);
+        }
+
+        return $this;
+    }
+
+    public function removeComment(Comment $comment): self
+    {
+        if ($this->Comment->removeElement($comment)) {
+            // set the owning side to null (unless already changed)
+            if ($comment->getTrick() === $this) {
+                $comment->setTrick(null);
             }
         }
 

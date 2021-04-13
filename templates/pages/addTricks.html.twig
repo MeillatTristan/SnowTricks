@@ -3,7 +3,7 @@
 {% block title %} SnowTricks | Ajouter un tricks {% endblock %}
 
 {% block stylesheets %}
-  {{ encore_entry_link_tags('styleFrontend') }}
+  {{ encore_entry_link_tags('app') }}
 {% endblock %}
 
 {% block body %}
@@ -28,14 +28,15 @@
           </label>
           <div id="containerPreviewImages" class="containerPreview"></div>
         </div>
-        <div class="containerImages">
-          <label for="trick_videos">
-            {{ form_errors(form.videos) }}
-            {{ form_widget(form.videos) }}
-            <p>Ajouter des Vidéos ...</p>
-          </label>
-          <div id="containerPreviewVideos" class="containerPreview"></div>
+        <div class="containerAddVideos">
+          <button type="button" class="add_item_link" data-collection-holder-class="videos">Ajouter une nouvelle vidéo</button>
+          <ul class="videos" data-prototype="{{ form_widget(form.videos.vars.prototype)|e('html_attr') }}">
+            {% for video in form.videos %}
+              {{ form_widget(video.url) }}
+            {% endfor %}
+          </ul>
         </div>
+
       </div>
       {{ form_widget(form.description) }} 
     </div>

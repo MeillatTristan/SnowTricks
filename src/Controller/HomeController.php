@@ -20,7 +20,10 @@ class HomeController extends AbstractController {
   {
     $repo = $this->getDoctrine()->getRepository(Trick::class);
     $tricks = $repo->findAll();
-    dump($tricks);
+    $forms = [];
+    foreach ($tricks as $trick) {
+      # code...
+    }
     return $this->render('pages/home.html.twig',[
       'tricks' => $tricks
     ]);

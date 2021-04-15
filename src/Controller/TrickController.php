@@ -2,9 +2,11 @@
 
 namespace App\Controller;
 
+use App\Entity\Comment;
 use App\Entity\Images;
 use App\Entity\Trick;
 use App\Entity\Videos;
+use App\Form\CommentType;
 use App\Form\TrickType;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
@@ -77,5 +79,27 @@ class TrickController extends AbstractController
         $entityManager->flush();
 
         return $this->redirectToRoute('home');
+    }
+
+    /**
+     * @Route("/{id}/show")
+     */
+    public function showTrick(string $id, Request $request, EntityManagerInterface $manager){
+        $trick = $this->getDoctrine()->getRepository(Trick::class)->find($id);
+
+        $comment = new Comment($this->getUser(), $trick);
+        $commentForm = $this->createForm(CommentType::class, $comment);
+        $commentForm->handleRequest($request);
+
+        if($commentForm->isSubmitted() && $commentForm->isValid()){
+            $manager = $this->getDoctrine()->getManager();
+            $manager->persist($comment);
+            $manager->flush();
+        }
+
+        return $this->render('pages/showTrick.html.twig', [
+            'trick' => $trick,
+            'commentForm' => $commentForm->createView()
+        ]);
     }
 }

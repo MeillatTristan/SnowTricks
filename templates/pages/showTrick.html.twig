@@ -1,0 +1,97 @@
+{% extends "frontendTemplate.html.twig" %}
+
+{% block title %}{{trick.name}} | Snowtricks {% endblock %}
+
+{% block stylesheets %}
+{{ encore_entry_link_tags('app') }}
+{% endblock %}
+
+{% block body %}
+<div class="containerDisplayTricks">
+  <div class="displayTrick">
+    <div class="header">
+      {% if trick.image|first.filename is defined %}
+      <div class="containerImg">
+        <img src="/assets/images/{{ trick.image|first.filename }}" alt="first image header trick">
+      </div>
+      {% endif %}
+      {% if app.user %}
+      <div class="containerInput">
+        <a href="tricks/{{trick.id}}/update"><i class="far fa-edit"></i></a>
+        <a href="/tricks/{{trick.id}}/delete" class="delete"
+          onclick="return confirm('Etes-vous sur de vouloir supprimer ce tric');"><i class="far fa-trash-alt"></i></a>
+      </div>
+      {% endif %}
+    </div>
+  
+    <div class="containerInformations">
+      <div class="container">
+        <h2>{{ trick.name }}</h2>
+        <p class="description">{{ trick.description }}</p>
+      </div>
+    </div>
+    <div class="informationImportant">
+      <div class="dateCrea">
+        <p>Date de publication : {{ trick.CreateDate }}</p>
+      </div>
+      <span>|</span>
+      <div class="group">
+        <p>Catégorie : {{ trick.category.name }}</p>
+      </div>
+      <span>|</span>
+      <div class="dateUpdate">
+        <p>Dernière mise à jour : {{ trick.dateUpdate }}</p>
+      </div>
+    </div>
+    <div class="containerAssets">
+      <div class="containerCarouImage">
+        {% for image in trick.image %}
+        <div class="containerImage">
+          <img src="/assets/images/{{ image.filename }}" alt="">
+        </div>
+        {% endfor %}
+        {% for video in trick.videos %}
+          <div class="containerVideo">
+            {{ video.url | raw }}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="Comment">
+      <div class="leaveComment">
+      {% if app.user %}
+        <h2>Laissez nous un commentaire !</h2>
+        {{ form_start(commentForm) }}
+          {{ form_errors(commentForm) }}
+          {{ form_row(commentForm.comment) }}
+          <div class="containerInput">
+            <input type="submit" value="Envoyez">
+          </div>
+        {{ form_end(commentForm) }}
+      {% else %}
+        <h2>Connectez vous pour commenter ce tricks !</h2>
+      {% endif %}
+      </div>
+      <div class="showComment">
+        <h2>{{ trick.comment|length }} Commentaires</h2>
+        {% for comment in trick.comment %}
+          <div class="cardComment">
+            <div class="info">
+              <p class="author">{{ comment.author }}</p>
+              <p class="date">Le {{ comment.dateCreate }}</p>
+            </div>
+            <p class="comment">{{ comment.comment }}</p>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+
+
+{% block javascript %}
+<script src="{{ asset('app.js') }}"></script>
+{{ encore_entry_link_tags('preview.js') }}
+{% endblock %}

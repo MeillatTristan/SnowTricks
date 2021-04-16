@@ -3,7 +3,7 @@
 {% block title %} SnowTricks | Accueil {% endblock %}
 
 {% block stylesheets %}
-{{ encore_entry_link_tags('app') }}
+
 {% endblock %}
 
 {% block body %}
@@ -45,7 +45,6 @@
 
 
 
-{% block javascript %}
-<script src="{{ asset('app.js') }}"></script>
-{{ encore_entry_link_tags('popup.js') }}
+{% block javascripts %}
+{{ encore_entry_script_tags('home') }}
 {% endblock %}

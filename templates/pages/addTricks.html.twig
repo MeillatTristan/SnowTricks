@@ -3,7 +3,6 @@
 {% block title %} SnowTricks | Ajouter un tricks {% endblock %}
 
 {% block stylesheets %}
-  {{ encore_entry_link_tags('app') }}
 {% endblock %}
 
 {% block body %}
@@ -12,6 +11,7 @@
     <h1>Ajouter un tricks</h1>
     <span class="lign"></span>
     {{ form_start(form) }}
+    {{ form_errors(form) }}
     <div class="firstGroup">
       {{ form_widget(form.name) }}
       <div class="containerCategory">
@@ -41,7 +41,6 @@
       {{ form_widget(form.description) }} 
     </div>
       <div class="containerInput">
-        <a href="#">Supprimer</a>
         <input type="submit" value="Valider">
       </div>
       {{ form_end(form) }}
@@ -52,7 +51,6 @@
 
 
 
-{% block javascript %}
-  <script src="{{ asset('app.js') }}"></script>
-  {{ encore_entry_link_tags('preview.js') }}
+{% block javascripts %}
+{{ encore_entry_script_tags('add') }}
 {% endblock %}

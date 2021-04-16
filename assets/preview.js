@@ -18,7 +18,8 @@ $(function() {
   };
 
   $('#trick_images').on('change', function() {
-      imagesPreview(this, 'div#containerPreviewImages');
+    console.log('yo');
+    imagesPreview(this, 'div#containerPreviewImages');
   });
 });
 

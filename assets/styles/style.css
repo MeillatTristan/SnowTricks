@@ -73,8 +73,11 @@ body{
   height: 80px;
   display: flex;
   align-items: center;
-  padding-left: 40px;
   margin-top: 80px;
+}
+
+.containerFlashMessage p, .containerFlashError p{
+margin-left: 40px;
 }
 
 .containerFlashError{
@@ -83,7 +86,6 @@ body{
   height: 80px;
   display: flex;
   align-items: center;
-  padding-left: 40px;
   margin-top: 80px;
 }
 
@@ -985,3 +987,26 @@ body{
   color: rgb(78, 78, 78);
 }
 
+.footer{
+  width: 100%;
+  height: 100px;
+  border-top: solid 1px rgb(177, 177, 177);
+}
+
+.footer ul{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+}
+
+.footer ul li a{
+  color: #d40059;
+  font-weight: 700;
+}
+
+.containerMentions{
+  margin-top: 150px;
+  padding: 100px;
+}

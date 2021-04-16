@@ -8,7 +8,6 @@ const elementList = [...document.querySelectorAll('.containerTricks .cardTrick')
 const loadmore = document.querySelector('#LoadMore');
 let currentItems = 12;
 loadmore.addEventListener('click', (e) => {
-    console.log('yo');
     const elementList = [...document.querySelectorAll('.containerTricks .cardTrick')];
     for (let i = currentItems; i < currentItems + 12; i++) {
         if (elementList[i]) {

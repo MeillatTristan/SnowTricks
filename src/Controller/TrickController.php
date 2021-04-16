@@ -14,6 +14,7 @@ use Embera\Embera;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\VarDumper\VarDumper;
 
@@ -22,6 +23,10 @@ use Symfony\Component\VarDumper\VarDumper;
  */
 class TrickController extends AbstractController
 {
+
+    public function __construct(SessionInterface $session){
+        $this->session = $session;
+    }
     /**
      * @Route("/ajouter", name="trickAdd")
      */
@@ -61,7 +66,8 @@ class TrickController extends AbstractController
             $manager->persist($trick);
             $manager->flush();
 
-            // return $this->redirectToRoute('trickAdd');
+            $this->session->getFlashBag()->add('message', 'Votre tricks a bien été ajouté !');
+            return $this->redirectToRoute('trickAdd');
         }
 
         return $this->render('pages/addTricks.html.twig', [

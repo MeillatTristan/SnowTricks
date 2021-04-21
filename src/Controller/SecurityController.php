@@ -31,7 +31,6 @@ class SecurityController extends AbstractController
      */
     public function registration(Request $request, EntityManagerInterface $manager, UserPasswordEncoderInterface $encoder, MailerInterface $mailer){
         if($this->getUser()){
-            dump($this->getUser());
             return $this->redirectToRoute('home');
         }
         $user = new  User;
@@ -73,7 +72,6 @@ class SecurityController extends AbstractController
      */
     public function login(){
         if($this->getUser()){
-            dump($this->getUser());
             return $this->redirectToRoute('home');
         }
         return $this->render('pages/login.html.twig');
@@ -111,7 +109,6 @@ class SecurityController extends AbstractController
      */
     public function forgotPassword(Request $request, TokenGeneratorInterface $tokenGenerator, UserRepository $userRepository, MailerInterface $mailer){
         if($this->getUser()){
-            dump($this->getUser());
             return $this->redirectToRoute('home');
         }
         $form = $this->createForm(ResetPasswordType::class);

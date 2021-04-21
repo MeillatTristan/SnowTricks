@@ -49,7 +49,6 @@ class TrickController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $images = $form->get('images')->getData();
-            dump($images);
             foreach ($images as $image) {
                 $filename = md5(uniqid()) . '.' . $image->guessExtension();
 
@@ -64,7 +63,6 @@ class TrickController extends AbstractController
             }
 
             $videos = $form->get('videos')->getData();
-            dump($videos);
             foreach ($videos as $video) {
                 $url = preg_replace("/\s*[a-zA-Z\/\/:\.]*youtu(be.com\/watch\?v=|.be\/)([a-zA-Z0-9\-_]+)([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.]*)/i","<iframe src=\"//www.youtube.com/embed/$2\" allowfullscreen></iframe>",$video);
                 $vid = new Videos;
@@ -154,7 +152,6 @@ class TrickController extends AbstractController
             }
             $videos = $form->get('videos')->getData();
             foreach ($videos as $video) {
-                dump($videos);
                 $url = preg_replace("/\s*[a-zA-Z\/\/:\.]*youtu(be.com\/watch\?v=|.be\/)([a-zA-Z0-9\-_]+)([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.]*)/i","<iframe src=\"//www.youtube.com/embed/$2\" allowfullscreen></iframe>", $video);
                 $vid = new Videos;
                 $vid->setUrl($url);

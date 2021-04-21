@@ -30,7 +30,10 @@ class SecurityController extends AbstractController
      * @Route("/inscription", name="registration")
      */
     public function registration(Request $request, EntityManagerInterface $manager, UserPasswordEncoderInterface $encoder, MailerInterface $mailer){
-        $this->denyAccessUnlessGranted('IS_ANONYMOUS');
+        if($this->getUser()){
+            dump($this->getUser());
+            return $this->redirectToRoute('home');
+        }
         $user = new  User;
         $form = $this->createForm(RegistrationType::class, $user);
 
@@ -69,7 +72,10 @@ class SecurityController extends AbstractController
      * @Route("/connexion", name="login")
      */
     public function login(){
-        $this->denyAccessUnlessGranted('IS_ANONYMOUS');
+        if($this->getUser()){
+            dump($this->getUser());
+            return $this->redirectToRoute('home');
+        }
         return $this->render('pages/login.html.twig');
     }
 
@@ -104,6 +110,10 @@ class SecurityController extends AbstractController
      * @Route("/forgot-password", name="forgot-password")
      */
     public function forgotPassword(Request $request, TokenGeneratorInterface $tokenGenerator, UserRepository $userRepository, MailerInterface $mailer){
+        if($this->getUser()){
+            dump($this->getUser());
+            return $this->redirectToRoute('home');
+        }
         $form = $this->createForm(ResetPasswordType::class);
         $form->handleRequest($request);
 

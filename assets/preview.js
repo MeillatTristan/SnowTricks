@@ -18,13 +18,12 @@ $(function() {
   };
 
   $('#trick_images').on('change', function() {
-    console.log('yo');
     imagesPreview(this, 'div#containerPreviewImages');
   });
 });
 
 $("#trick_images").click(function(){
-  $("div#containerPreviewImages").empty();
+  $(".preview").remove();
 });
 
 $(function() {

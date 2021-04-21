@@ -56,8 +56,8 @@ class Videos
         return $this;
     }
 
-    public function __toString()
-{
-    return $this->getUrl();
-}
+    public function __toString(): ?string
+    {
+        return $this->getUrl();
+    }
 }

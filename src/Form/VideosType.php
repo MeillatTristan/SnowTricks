@@ -14,7 +14,7 @@ class VideosType extends AbstractType
     {
         $builder
         ->add('url', TextType::class, array(
-            'mapped' => false,
+            'mapped' => true,
             'attr' => array(
                 'placeholder' => 'Url de la video ...'
             ),

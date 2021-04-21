@@ -1,6 +1,6 @@
 {% extends "frontendTemplate.html.twig" %}
 
-{% block title %} SnowTricks | Ajouter un tricks {% endblock %}
+{% block title %} SnowTricks | Modifier {{ trick.name }} {% endblock %}
 
 {% block stylesheets %}
 {% endblock %}
@@ -8,7 +8,7 @@
 {% block body %}
 <div class="containerPadding">
   <div class="containerTrick">
-    <h1>Ajouter un tricks</h1>
+    <h1>Modifier un tricks</h1>
     <span class="lign"></span>
     {{ form_start(form) }}
     <div class="errors">
@@ -28,13 +28,26 @@
             {{ form_widget(form.images) }}
             <p>Ajouter des images ...</p>
           </label>
+          <div class="containerBdd">
+            <p>Images déjà enregistré</p>
+            {% for image in trick.image %}
+            <a href="images/{{ image.id }}/delete" class="containerImg">
+              <img src="/assets/images/{{image.filename}}" alt="" class="previewBefore">
+              <i class="far fa-trash-alt"></i>
+            </a>
+            {% endfor %}
+          </div>
           <div id="containerPreviewImages" class="containerPreview"></div>
         </div>
         <div class="containerAddVideos">
           <button type="button" class="add_item_link" data-collection-holder-class="videos">Ajouter une nouvelle vidéo</button>
           <ul class="videos" data-prototype="{{ form_widget(form.videos.vars.prototype)|e('html_attr') }}">
             {% for video in form.videos %}
-              {{ form_widget(video.url) }}
+              <li>
+                <div>
+                  {{ form_widget(video.url, {'value' : trick.videos[loop.index0].url }) }}
+                </div>
+              </li>
             {% endfor %}
           </ul>
         </div>

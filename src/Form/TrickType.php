@@ -41,18 +41,18 @@ class TrickType extends AbstractType
             'label' => false,
             'multiple' => true,
             'mapped' => false,
-            'required' => true,
+            'required' => false,
             'attr'     => [
                 'accept' => 'image/*',
                 'multiple' => 'multiple',
             ]
         ])
         ->add('videos', CollectionType::class, [
-            // each entry in the array will be an "email" field
             'entry_type' => VideosType::class,
             'allow_add' => true,
             'allow_delete' => true,
             'by_reference' => false,
+            'mapped' => false,
             'attr' => [
                 'placeholder' => "Url d'une vidéo youtube",
             ],

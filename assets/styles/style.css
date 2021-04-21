@@ -35,6 +35,10 @@ body{
   justify-content: space-between;
 }
 
+.topbar ul li .icon{
+  display: none;
+}
+
 .topbar li img{
   height: 80px;
   width: auto;
@@ -95,6 +99,7 @@ body{
 
 .containerBlockHeader{
   background-image: url("../../public/assets/images/snowboardBg.jpg");
+  background-position: center;
   background-size: cover;
   height: 90vh;
   padding-top: 100px;
@@ -227,8 +232,9 @@ body{
 }
 
 .containerCategories{
-  margin-top: 100px;
+  margin-top: 110px;
   padding: 0 100px;
+  min-height: 600px;
 }
 
 .containerCategories h1{
@@ -308,6 +314,7 @@ body{
       font-size: 11px;
       color: white;
       padding: 0 0 10px;
+      display: none;
   }
   .fl-table thead, .fl-table tbody, .fl-table thead th {
       display: block;
@@ -324,8 +331,7 @@ body{
       overflow-x: auto;
   }
   .fl-table td, .fl-table th {
-      padding: 20px .625em .625em .625em;
-      height: 60px;
+      padding: 10px;
       vertical-align: middle;
       box-sizing: border-box;
       overflow-x: hidden;
@@ -430,8 +436,17 @@ body{
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  
+  align-items: center; 
+}
+
+.containerTrick form .errors{
+  width: 100%;
+}
+
+.containerTrick form .errors ul{
+  color: #d40059;
+  margin-bottom: 10px;
+  font-weight: 600;
 }
 
 .containerTrick h1{
@@ -573,12 +588,63 @@ body{
   margin-top: 20px;
   align-items: center;
   height: max-content;
+  width: 100%;
+  margin-bottom: 20px;
 }
 
-.containerTrick form .containerMedia .containerImages .containerPreview .preview{
+.containerTrick form .containerMedia .containerImages .containerBdd{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  padding: 50px 10px;
+  align-items: center;
+  height: max-content;
+  width: 100%;
+  position: relative;
+  border: solid 1px #d1e9d8;
+  width: 100%;
+}
+
+.containerTrick form .containerMedia .containerImages .containerBdd p{
+  color: black;
+  top: 10px;
+  position: absolute;
+}
+
+.containerTrick form .containerMedia .containerImages .previewBefore{
+  width: 100%;
+  height: auto;
+}
+
+.containerTrick form .containerMedia .containerImages .preview{
   max-width: 30%;
   height: auto;
-  margin-top: 25px;
+}
+
+.containerTrick form .containerMedia .containerImages .containerImg{
+  max-width: 30%;
+  height: auto;
+  position: relative;
+}
+
+.containerTrick form .containerMedia .containerImages .containerImg i{
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #d40059;
+  color: white;
+  opacity: 0;
+  transition: 0.3s;
+  top: 0px;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+}
+
+.containerTrick form .containerMedia .containerImages .containerImg:hover i{
+  opacity: 0.7;
 }
 
 .containerTrick form .containerMedia .containerAddMedia .containerAddVideos{
@@ -1009,4 +1075,318 @@ body{
 .containerMentions{
   margin-top: 150px;
   padding: 100px;
+}
+
+@media screen and (max-width: 1000px) {
+  .topbar li img{
+    height: 60px;
+  }
+
+  .topbar li a{
+    font-size: 20px;
+  }
+
+  .containerDisplayTricks .displayTrick .containerImg img{
+    width: 100%;
+    height: auto;
+  }
+
+  .containerDisplayTricks .displayTrick .containerImg{
+    height: auto;
+  }
+
+  .containerCategories .linkNew{
+    margin-left: 0;
+    margin-top: 40px;
+  }
+
+  .containerCategories form{
+    margin-bottom: 40px;
+  }
+
+  .containerCategories{
+    padding: 20px;
+  }
+}
+
+@media screen and (max-width: 700px){
+  .topbar{
+    position: fixed;
+    bottom: 0;
+    top: auto;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-top: solid 1px;
+  }
+
+  .topbar .img{
+    display: none;
+  }
+
+  .topbar ul{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .topbar ul li .icon{
+    display: block;
+    transition: 0.1s;
+  }
+  
+  .topbar ul li .icon:hover{
+    color: #d40059;
+  }
+
+  .topbar ul li .icon i{
+    font-size: 30px;
+  }
+
+  .topbar ul li .desktop{
+    display: none;
+  }
+
+  .containerBlockHeader{
+    padding-top: 0;
+    height: 70vh;
+  }
+
+  .footer ul{
+    margin-bottom: 60px;
+  }
+
+  .containerDisplayTricks{
+    margin-top: 40px;
+  }
+
+  .containerTrick{
+    margin-top: 40px;
+    width: 90%;
+    padding: 30px 5px;
+  }
+
+  .containerTrick form .firstGroup{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .containerTrick form .firstGroup input{
+    width: 70%;
+  }
+
+  .containerTrick form .firstGroup .containerCategory{
+    width: 70%;
+  }
+
+  .containerTrick form .containerMedia{
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .containerTrick form .containerMedia .containerAddMedia{
+    width: 70%;
+  }
+
+  .containerTrick form .containerMedia .containerAddMedia .containerImages label{
+    width: 80%;
+  }
+
+  .containerTrick form .containerMedia .containerAddMedia .containerImages{
+    margin-bottom: 20px;
+  }
+
+  .containerTrick form .containerMedia .containerAddMedia .containerAddVideos .add_item_link{
+    width: 80%;
+  }
+
+  .containerTrick form .containerMedia textarea{
+    width: 70%;
+  }
+
+  .containerTrick .containerInput{
+    justify-content: center;
+    width: 70%;
+  }
+
+  .containerTrick .containerInput a, .containerTrick .containerInput input{
+    margin-left: 0;
+  }
+
+  .containerCategories{
+    margin-top: 40px;
+  }
+
+  .containerPadding .containerForm form{
+    width: 70%;
+  }
+
+  .containerPadding .containerForm input{
+    width: 90%;
+    font-size: 15px;
+  }
+
+  .containerPadding .containerForm input::placeholder{
+    font-size: 15px;
+  }
+
+  .containerPadding .containerForm input[type="submit"]{
+    width: 90%;
+    font-size: 16px;
+  }
+
+  .containerPadding .containerForm h1{
+    font-size: 30px;
+  }
+  
+}
+
+@media screen and (max-width: 600px){
+  .containerBlockHeader h1{
+    font-size: 35px;
+    padding: 0;
+    text-align: center;
+  }
+
+  .containerBlockHeader h2{
+    font-size: 30px;
+    padding: 0;
+    text-align: center;
+
+  }
+
+  .containerBlockHeader .containerText{
+    margin: 0%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .containerTricks{
+    padding: 50px;
+  }
+
+  .containerTricks .cardTrick{
+    width: 200px;
+  }
+
+  .containerTricks .cardTrick .containerImg{
+    height: 150px;
+  }
+
+  .containerTricks .cardTrick .containerLink .title{
+    font-size: 13px;
+    min-width: 40%;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .containerTricks .cardTrick .containerLink .containerInput{
+    width: 50%;
+  }
+
+  .ContainerLoadMore button{
+    padding: 15px;
+    font-size: 15px;
+  }
+
+  .footer ul li{
+    font-size: 15px;
+    text-align: center;
+  }
+
+  .containerDisplayTricks .displayTrick{
+    width: 90%;
+    padding: 60px 20px;
+  }
+
+  .containerDisplayTricks .displayTrick .containerImg{
+    padding: 10px 0;
+  }
+
+  .containerDisplayTricks .displayTrick .informationImportant{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+    padding-left: 15px;
+  }
+
+  .containerDisplayTricks .displayTrick .informationImportant span{
+    display: none;
+  }
+
+  .containerDisplayTricks .displayTrick .informationImportant p{
+    font-size: 14px;
+  }
+
+  .containerDisplayTricks .containerCarouImage .containerImage img{
+    width: 200px;
+    height: auto;
+  }
+
+  .containerDisplayTricks .containerCarouImage .containerImage, .containerDisplayTricks .containerVideo{
+    width: 200px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+  }
+
+  .containerDisplayTricks .containerVideo iframe{
+    height: 300px;
+    width: auto;
+    border: none;
+  }
+
+  .containerDisplayTricks .displayTrick h2{
+    font-size: 22px;
+  }
+
+  .containerDisplayTricks .Comment form{
+    margin-bottom: 20px;
+  }
+
+  .containerDisplayTricks .Comment .showComment .cardComment .info{
+    flex-wrap: wrap;
+  }
+
+  .containerCategories h1{
+    text-align: center;
+  }
+
+  .containerCategories form{
+    width: 70%;
+  }
+
+  .containerCategories form #categories{
+    width: 100%;
+  }
+
+  .containerCategories form #categories{
+    width: 100%;
+  }
+
+  .containerCategories input{
+    width: 90%;
+  }
+
+  .table-wrapper{
+    margin: 50px 20px;
+  }
+
+  .fl-table thead{
+    height: 100%;
+  }
+
+  .containerCategories .containerInput{
+    flex-direction: column;
+  }
 }

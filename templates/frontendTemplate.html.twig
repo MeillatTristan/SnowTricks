@@ -21,15 +21,15 @@
     <body>
         <nav class="topbar">
             <ul>
-                <li><img src="{{url('home')}}/assets/images/logoSnowtricks.png" alt=""></li>
+                <li class="img"><img src="{{url('home')}}/assets/images/logoSnowtricks.png" alt=""></li>
                 <div class="containerLink">
-                    <li><a class="accueil" href="/">Accueil</a></li>
+                    <li><a class="accueil desktop" href="/">Accueil</a> <a href="/" class="icon"><i class="fas fa-home"></i></a></li>
                     {% if not app.user %}
-                        <li><a class="inscription" href="/inscription">S'inscrire</a></li>
-                        <li><a class="connexion" href="{{ path('login') }}">Se connecter</a></li>
+                        <li><a class="inscription desktop" href="/inscription">S'inscrire</a><a href="/inscription" class="icon"> <i class="fas fa-user-plus"></i></a></li>
+                        <li><a class="connexion desktop" href="{{ path('login') }}">Se connecter</a> <a href="{{ path('login') }}" class="icon"><i class="fas fa-sign-in-alt"></i></a></li>
                     {% else %}
-                        <li><a class="inscription" href="/tricks/ajouter">Ajouter un tricks</a></li>
-                        <li><a class="connexion" href="{{ path('logout') }}">Déconnexion</a></li>
+                        <li><a class="inscription desktop" href="/tricks/ajouter">Ajouter un tricks</a> <a href="/tricks/ajouter" class="icon"><i class="fas fa-snowboarding"></i></a></li>
+                        <li><a class="connexion desktop" href="{{ path('logout') }}">Déconnexion</a> <a href="{{ path('logout') }}" class="icon"><i class="fas fa-sign-out-alt"></i></a></li>
                     {% endif %}
                 </div>
             </ul>

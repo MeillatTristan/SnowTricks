@@ -43,7 +43,7 @@
           <button type="button" class="add_item_link" data-collection-holder-class="videos">Ajouter une nouvelle vidéo</button>
           <ul class="videos" data-prototype="{{ form_widget(form.videos.vars.prototype)|e('html_attr') }}">
             {% for video in form.videos %}
-              <li>
+              <li class="existingUrl"> 
                 <div>
                   {{ form_widget(video.url, {'value' : trick.videos[loop.index0].url }) }}
                 </div>

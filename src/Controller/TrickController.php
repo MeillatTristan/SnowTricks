@@ -153,13 +153,6 @@ class TrickController extends AbstractController
                 $img->setFilename($filename);
                 $trick->addImage($img);
             }
-            $videos = $formUpdate->get('videos')->getData();
-            foreach ($videos as $video) {
-                $url = preg_replace("/\s*[a-zA-Z\/\/:\.]*youtu(be.com\/watch\?v=|.be\/)([a-zA-Z0-9\-_]+)([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.]*)/i","<iframe src=\"//www.youtube.com/embed/$2\" allowfullscreen></iframe>", $video);
-                $vid = new Videos;
-                $vid->setUrl($url);
-                $trick->addVideo($vid);
-            }
 
             $this->getDoctrine()->getManager()->flush();
 

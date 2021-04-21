@@ -28,6 +28,11 @@ class TrickController extends AbstractController
     public function __construct(SessionInterface $session){
         $this->session = $session;
     }
+    
+    public function createFormTrick(Trick $trick){
+        $form = $this->createForm(TrickType::class, $trick);
+        return $form;
+    }
 
     /**
      * @Route("/ajouter", name="trickAdd")
@@ -42,11 +47,9 @@ class TrickController extends AbstractController
         }
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $trick = new Trick();
-        
 
-        $form = $this->createForm(TrickType::class, $trick);
+        $form = $this->createFormTrick($trick);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
             $images = $form->get('images')->getData();
             foreach ($images as $image) {
@@ -133,11 +136,11 @@ class TrickController extends AbstractController
         if($this->getUser()->getActivationToken() != NULL){
             return $this->redirectToRoute('home');
         }
-        $form = $this->createForm(TrickType::class, $trick);
-        $form->handleRequest($request);
+        $formUpdate = $this->createFormTrick($trick);
+        $formUpdate->handleRequest($request);
 
-        if($form->isSubmitted() && $form->isValid()){
-            $images = $form->get('images')->getData();
+        if($formUpdate->isSubmitted() && $formUpdate->isValid()){
+            $images = $formUpdate->get('images')->getData();
             foreach ($images as $image) {
                 $filename = md5(uniqid()) . '.' . $image->guessExtension();
 
@@ -150,7 +153,7 @@ class TrickController extends AbstractController
                 $img->setFilename($filename);
                 $trick->addImage($img);
             }
-            $videos = $form->get('videos')->getData();
+            $videos = $formUpdate->get('videos')->getData();
             foreach ($videos as $video) {
                 $url = preg_replace("/\s*[a-zA-Z\/\/:\.]*youtu(be.com\/watch\?v=|.be\/)([a-zA-Z0-9\-_]+)([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.]*)/i","<iframe src=\"//www.youtube.com/embed/$2\" allowfullscreen></iframe>", $video);
                 $vid = new Videos;
@@ -165,7 +168,7 @@ class TrickController extends AbstractController
         }
         return $this->render('pages/updateTrick.html.twig', [
             'trick' => $trick,
-            'form' => $form->createView()
+            'form' => $formUpdate->createView()
         ]);
     }
 

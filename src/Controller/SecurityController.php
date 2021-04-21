@@ -98,8 +98,6 @@ class SecurityController extends AbstractController
         $entityManager->persist($user);
         $entityManager->flush();
 
-        // $message = (new \Swift_Message('Activation de votre compte'));
-
         $this->session->getFlashBag()->add('message', 'Votre compte à bien été activé !');
         return $this->redirectToRoute('home');
     }

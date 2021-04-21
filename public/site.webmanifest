@@ -1,0 +1,9 @@
+{
+  "name": "Snowtricks",
+  "short_name": "Snowtricks",
+  "theme_color": "#d40059",
+  "background_color": "#f6f5fa",
+  "display": "browser",
+  "scope": "/",
+  "start_url": "/"
+}

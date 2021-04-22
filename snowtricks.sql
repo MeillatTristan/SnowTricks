@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mer. 21 avr. 2021 à 21:03
+-- Généré le : jeu. 22 avr. 2021 à 16:43
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.4.9
 
@@ -197,14 +197,15 @@ CREATE TABLE IF NOT EXISTS `user` (
   `reset_token` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQ_8D93D649E7927C74` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `user`
 --
 
 INSERT INTO `user` (`id`, `email`, `roles`, `password`, `username`, `activation_token`, `reset_token`) VALUES
-(19, 'tristan.meillat28@gmail.com', '[]', '$2y$13$SlJyeC39pIXpvRAxzCdEWOwu5s3VIBrjh/qrWva7nDOInIlJhF6jy', 'elfepee', NULL, 'u_Rqi2oVtoT7mPFTD-xTGmNbcU8SjnOLTvuHTKrUd94');
+(19, 'tristan.meillat28@gmail.com', '[]', '$2y$13$SlJyeC39pIXpvRAxzCdEWOwu5s3VIBrjh/qrWva7nDOInIlJhF6jy', 'elfepee', NULL, 'u_Rqi2oVtoT7mPFTD-xTGmNbcU8SjnOLTvuHTKrUd94'),
+(20, 'test.test@gmail.com', '[]', '$2y$13$MtzmrQVv5PP86SBJR4vZ6OBQTJvhZuZB5Gx31CsEp0lhHEc9AIHc2', 'Test', NULL, NULL);
 
 -- --------------------------------------------------------
 

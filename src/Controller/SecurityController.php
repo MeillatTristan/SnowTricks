@@ -59,6 +59,7 @@ class SecurityController extends AbstractController
 
             $mailer->send($email);
 
+            $this->session->getFlashBag()->add('message', 'Rendez-vous sur votre boite mail pour activer votre compte !');
             return $this->redirectToRoute('login');
         }
 
@@ -182,7 +183,7 @@ class SecurityController extends AbstractController
         $user->setResetToken(null);
 
         return $this->render('pages/formResetPassword.html.twig', [
-            "form" => $form->createView(    )
+            "form" => $form->createView()
         ]);
     }
 

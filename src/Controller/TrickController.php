@@ -78,7 +78,7 @@ class TrickController extends AbstractController
             $manager->flush();
 
             $this->session->getFlashBag()->add('message', 'Votre tricks a bien été ajouté !');
-            return $this->redirectToRoute('trickAdd');
+            return $this->redirectToRoute('home');
         }
 
         return $this->render('pages/addTricks.html.twig', [

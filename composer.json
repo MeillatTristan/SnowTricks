@@ -40,8 +40,7 @@
         "symfony/validator": "*",
         "symfony/web-link": "*",
         "symfony/webpack-encore-bundle": "^1.11",
-        "symfony/yaml": "*",
-        "vich/uploader-bundle": "^1.17"
+        "symfony/yaml": "*"
     },
     "require-dev": {
         "doctrine/doctrine-fixtures-bundle": "^3.4",

@@ -110,8 +110,6 @@ class TrickController extends AbstractController
     public function showTrick(string $id, Request $request, EntityManagerInterface $manager){
         $trick = $this->getDoctrine()->getRepository(Trick::class)->find($id);
 
-        $users = 
-
         $comment = new Comment($this->getUser(), $trick);
         $commentForm = $this->createForm(CommentType::class, $comment);
         $commentForm->handleRequest($request);

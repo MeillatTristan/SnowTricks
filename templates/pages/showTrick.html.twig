@@ -2,9 +2,6 @@
 
 {% block title %}{{trick.name}} | Snowtricks {% endblock %}
 
-{% block stylesheets %}
-{% endblock %}
-
 {% block body %}
 <div class="containerDisplayTricks">
   <div class="displayTrick">
@@ -22,7 +19,7 @@
       </div>
       {% endif %}
     </div>
-  
+
     <div class="containerInformations">
       <div class="container">
         <h2>{{ trick.name }}</h2>
@@ -50,50 +47,54 @@
         </div>
         {% endfor %}
         {% for video in trick.videos %}
-          <div class="containerVideo">
-            {{ video.url | raw }}
-          </div>
+        <div class="containerVideo">
+          {{ video.url | raw }}
+        </div>
         {% endfor %}
       </div>
     </div>
     <div class="Comment">
       <div class="leaveComment">
-      {% if app.user %}
+        {% if app.user %}
         <h2>Laissez nous un commentaire !</h2>
         {{ form_start(commentForm) }}
-          {{ form_errors(commentForm) }}
-          {{ form_row(commentForm.comment) }}
-          <div class="containerInput">
-            <input type="submit" value="Envoyez">
-          </div>
+        {{ form_errors(commentForm) }}
+        {{ form_row(commentForm.comment) }}
+        <div class="containerInput">
+          <input type="submit" value="Envoyez">
+        </div>
         {{ form_end(commentForm) }}
-      {% else %}
+        {% else %}
         <h2>Connectez vous pour commenter ce tricks !</h2>
-      {% endif %}
+        {% endif %}
       </div>
       <div class="showComment">
         <h2>{{ trick.comment|length }} Commentaires</h2>
         {% for comment in trick.comment %}
-          <div class="containerComment">
-            <div class="containerImg">
-              <img src="/assets/images/{{ comment.photo }}" alt="">
-            </div>
-            <div class="cardComment">
-              <div class="info">
-                <p class="author">{{ comment.author }}</p>
-                <p class="date">Le {{ comment.dateCreate }}</p>
-              </div>
-              <p class="comment">{{ comment.comment }}</p>
-            </div>
+        <div class="containerComment">
+          <div class="containerImg">
+            <img src="/assets/images/{{ comment.photo }}" alt="">
           </div>
+          <div class="cardComment">
+            <div class="info">
+              <p class="author">{{ comment.author }}</p>
+              <p class="date">Le {{ comment.dateCreate }}</p>
+            </div>
+            <p class="comment">{{ comment.comment }}</p>
+          </div>
+        </div>
         {% endfor %}
+        {% if trick.comment|length >= 10 %}
+          <div class="ContainerLoadMore">
+            <button id="LoadMore">Charger d'avantage</button>
+          </div>
+        {% endif %}
       </div>
     </div>
   </div>
 </div>
 {% endblock %}
 
-{% block javascript %}
-<script src="{{ asset('app.js') }}"></script>
-{{ encore_entry_link_tags('preview.js') }}
+{% block javascripts %}
+{{ encore_entry_script_tags('show') }}
 {% endblock %}

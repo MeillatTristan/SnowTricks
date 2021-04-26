@@ -44,6 +44,20 @@ class SecurityController extends AbstractController
 
             // generate token
             $user->setActivationToken(md5(uniqid()));
+
+            if($form->get('image')->getData()){
+                $image = $form->get('image')->getData();
+                $filename = md5(uniqid()) . '.' . $image->guessExtension();
+
+                $image->move(
+                    $this->getParameter('images_directory'),
+                    $filename
+                );
+                $user->setPhoto($filename);
+            }
+            else{
+                $user->setPhoto('profil.webp');
+            }
             
             $manager->persist($user);
             $manager->flush();

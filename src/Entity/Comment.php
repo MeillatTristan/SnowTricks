@@ -38,6 +38,11 @@ class Comment
      */
     private $dateCreate;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $photo;
+
     public function __construct(User $user, Trick $trick)
     {
         $date = new \DateTime('now');
@@ -45,6 +50,7 @@ class Comment
         $this->setDateCreate($result);
         
         $this->setAuthor($user->getUsername());
+        $this->setPhoto($user->getPhoto());
 
         $this->setTrick($trick);
     }
@@ -98,6 +104,18 @@ class Comment
     public function setDateCreate(string $dateCreate): self
     {
         $this->dateCreate = $dateCreate;
+
+        return $this;
+    }
+
+    public function getPhoto(): ?string
+    {
+        return $this->photo;
+    }
+
+    public function setPhoto(string $photo): self
+    {
+        $this->photo = $photo;
 
         return $this;
     }

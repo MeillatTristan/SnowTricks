@@ -158,6 +158,46 @@ body{
   margin-top: 10%;
 }
 
+.containerPadding .containerForm .containerFile{
+  width: 150px;
+  height: 150px;
+  position: relative;
+  border-radius: 100%;
+  cursor: pointer;
+}
+
+.containerPadding .containerForm .containerFile .containerImg{
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  border-radius: 100%;
+}
+
+.containerPadding .containerForm .containerFile img{
+  width: 150px;
+  height: auto;
+}
+
+.containerPadding .containerForm .containerFile input[type=file]{
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  border-radius: 100%;
+  cursor: pointer;
+}
+
+.containerPadding .containerForm .containerFile label{
+  position: absolute;
+  color: #d40059;
+  font-size: 60px;
+  font-weight: 600;
+  top: -20px;
+  right: 0;
+}
+
 .containerPadding .containerForm form{
   display: flex;
   flex-direction: column;
@@ -984,6 +1024,27 @@ body{
   margin-top: 40px;
 }
 
+.containerDisplayTricks .Comment .containerComment{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.containerDisplayTricks .Comment .containerComment .containerImg{
+  height: 87px;
+  width: 87px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  padding: 0;
+}
+.containerDisplayTricks .Comment .containerComment img{
+  height: 87px;
+  width: auto;
+  box-shadow: none;
+}
+
 .containerDisplayTricks .Comment form{
   width: 100%;
   margin-top: 40px;
@@ -1036,6 +1097,7 @@ body{
   background-color: #f5f5f5;
   padding: 15px;
   border-radius: 5px;
+  width: 80%;
 }
 
 .containerDisplayTricks .Comment .showComment .cardComment .info{
@@ -1106,6 +1168,10 @@ body{
 
   .containerCategories{
     padding: 20px;
+  }
+
+  .containerDisplayTricks .Comment .containerComment .containerImg{
+    display: none;
   }
 }
 

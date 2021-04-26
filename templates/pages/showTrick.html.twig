@@ -74,12 +74,17 @@
       <div class="showComment">
         <h2>{{ trick.comment|length }} Commentaires</h2>
         {% for comment in trick.comment %}
-          <div class="cardComment">
-            <div class="info">
-              <p class="author">{{ comment.author }}</p>
-              <p class="date">Le {{ comment.dateCreate }}</p>
+          <div class="containerComment">
+            <div class="containerImg">
+              <img src="/assets/images/{{ comment.photo }}" alt="">
             </div>
-            <p class="comment">{{ comment.comment }}</p>
+            <div class="cardComment">
+              <div class="info">
+                <p class="author">{{ comment.author }}</p>
+                <p class="date">Le {{ comment.dateCreate }}</p>
+              </div>
+              <p class="comment">{{ comment.comment }}</p>
+            </div>
           </div>
         {% endfor %}
       </div>

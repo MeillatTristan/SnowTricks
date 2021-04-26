@@ -15,6 +15,13 @@
     {{ form_errors(form.password) }}
     </div>
     {{ form_errors(form) }}
+    <div class="containerFile">
+      {{ form_widget(form.image) }}
+      <div class="containerImg">
+        <img src="/assets/images/profil.webp" id='profilPicturePreview' alt="">
+      </div>
+      <label for="">+</label>
+    </div>
     {{ form_widget(form.username) }}
     {{ form_widget(form.email) }}
     {{ form_widget(form.password) }}
@@ -25,6 +32,6 @@
 </div>
 {% endblock %}
 
-{% block javascript %}
-  <script src="{{ asset('app.js') }}"></script>
+{% block javascripts %}
+{{ encore_entry_script_tags('registration') }}
 {% endblock %}

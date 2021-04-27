@@ -1,7 +1,7 @@
 #SnowTricks
 
 ## Contexte
-[![SymfonyInsight](https://insight.symfony.com/projects/298b5fcf-0828-4207-b5ca-5c4696451c88/mini.svg)](https://insight.symfony.com/projects/298b5fcf-0828-4207-b5ca-5c4696451c88)
+[![SymfonyInsight](https://insight.symfony.com/projects/96303bb3-7fa1-48d8-8bcc-6179aa870e58/mini.svg)](https://insight.symfony.com/projects/96303bb3-7fa1-48d8-8bcc-6179aa870e58)
 
 Dans le cadre du projet 6 de la formation OpenClassrooms "Développeur d'application web" en spécialisation symfony, nous devions réaliser un site web en Symfony pour un client fictif qui souhaitait réaliser un blog de snowboard
 
@@ -44,14 +44,12 @@ Créer une base donnée et importé le fichier portfolio.sql
 
 ### Etape 3 : 
 
-Editer le fichier de configuration comprenant la base de donnée, le serveur smtp ainsi que vos informations mail. il se trouve à la racine et est nommé : ```.envExemple```
+Editer le fichier de configuration comprenant la base de donnée, le serveur smtp ainsi que vos informations mail. il se trouve à la racine et est nommé : ```.env```
 
 voici les différents lignes à modifier 
 
 ``` MAILER_DSN=gmail://test.test@gmail.com:password@default ```
 ``` DATABASE_URL="mysql://root:@127.0.0.1:3306/dbName" ```
-
-Renommer ensuite le fichier ```config.exemple.php``` en ```config.php```
 
 ### Etape 4 : 
 

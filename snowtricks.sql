@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 22 avr. 2021 à 16:43
+-- Généré le : mar. 27 avr. 2021 à 12:53
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.4.9
 
@@ -58,9 +58,22 @@ CREATE TABLE IF NOT EXISTS `comment` (
   `comment` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `author` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `date_create` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `photo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_9474526CB281BE2E` (`trick_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `comment`
+--
+
+INSERT INTO `comment` (`id`, `trick_id`, `comment`, `author`, `date_create`, `photo`) VALUES
+(1, 326, 'Le même que tony hawk !', 'tristan.meillat28@gmail.com', '26-04-2021', ''),
+(2, 326, 'Le même que tony hawk !', 'tristan.meillat28@gmail.com', '26-04-2021', 'profil.webp'),
+(3, 326, 'Le même que tony hawk !', 'tristan.meillat28@gmail.com', '26-04-2021', 'profil.webp'),
+(4, 326, 'Le même que tony hawk !', 'tristan.meillat28@gmail.com', '26-04-2021', 'profil.webp'),
+(5, 326, 'incroyable !', 'elfepee', '26-04-2021', 'profil.webp'),
+(6, 326, 'incroyable !', 'elfepee', '26-04-2021', '70ea49cff2164ec3cc49c1b9d64caf55.jpg');
 
 -- --------------------------------------------------------
 
@@ -104,7 +117,9 @@ INSERT INTO `doctrine_migration_versions` (`version`, `executed_at`, `execution_
 ('DoctrineMigrations\\Version20210329140147', '2021-03-29 14:02:02', 542),
 ('DoctrineMigrations\\Version20210414145501', '2021-04-14 14:55:16', 89),
 ('DoctrineMigrations\\Version20210414145652', '2021-04-14 14:56:57', 52),
-('DoctrineMigrations\\Version20210414151327', '2021-04-14 15:13:33', 72);
+('DoctrineMigrations\\Version20210414151327', '2021-04-14 15:13:33', 72),
+('DoctrineMigrations\\Version20210426123911', '2021-04-26 12:39:22', 517),
+('DoctrineMigrations\\Version20210426132116', '2021-04-26 13:21:30', 87);
 
 -- --------------------------------------------------------
 
@@ -195,6 +210,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `activation_token` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `reset_token` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `photo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQ_8D93D649E7927C74` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -203,9 +219,9 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- Déchargement des données de la table `user`
 --
 
-INSERT INTO `user` (`id`, `email`, `roles`, `password`, `username`, `activation_token`, `reset_token`) VALUES
-(19, 'tristan.meillat28@gmail.com', '[]', '$2y$13$SlJyeC39pIXpvRAxzCdEWOwu5s3VIBrjh/qrWva7nDOInIlJhF6jy', 'elfepee', NULL, 'u_Rqi2oVtoT7mPFTD-xTGmNbcU8SjnOLTvuHTKrUd94'),
-(20, 'test.test@gmail.com', '[]', '$2y$13$MtzmrQVv5PP86SBJR4vZ6OBQTJvhZuZB5Gx31CsEp0lhHEc9AIHc2', 'Test', NULL, NULL);
+INSERT INTO `user` (`id`, `email`, `roles`, `password`, `username`, `activation_token`, `reset_token`, `photo`) VALUES
+(19, 'tristan.meillat28@gmail.com', '[]', '$2y$13$SlJyeC39pIXpvRAxzCdEWOwu5s3VIBrjh/qrWva7nDOInIlJhF6jy', 'elfepee', NULL, 'u_Rqi2oVtoT7mPFTD-xTGmNbcU8SjnOLTvuHTKrUd94', '70ea49cff2164ec3cc49c1b9d64caf55.jpg'),
+(20, 'test.test@gmail.com', '[]', '$2y$13$MtzmrQVv5PP86SBJR4vZ6OBQTJvhZuZB5Gx31CsEp0lhHEc9AIHc2', 'Test', NULL, NULL, 'profil.webp');
 
 -- --------------------------------------------------------
 

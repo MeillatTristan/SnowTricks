@@ -1,4 +1,4 @@
-#SnowTricks
+# SnowTricks
 
 ## Contexte
 [![SymfonyInsight](https://insight.symfony.com/projects/96303bb3-7fa1-48d8-8bcc-6179aa870e58/mini.svg)](https://insight.symfony.com/projects/96303bb3-7fa1-48d8-8bcc-6179aa870e58)

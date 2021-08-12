@@ -10,7 +10,6 @@ use App\Form\CommentType;
 use App\Form\TrickType;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
-use Embera\Embera;
 use PhpParser\Node\Expr\Cast\String_;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -110,19 +109,24 @@ class TrickController extends AbstractController
     public function showTrick(string $id, Request $request, EntityManagerInterface $manager){
         $trick = $this->getDoctrine()->getRepository(Trick::class)->find($id);
 
-        $comment = new Comment($this->getUser(), $trick);
-        $commentForm = $this->createForm(CommentType::class, $comment);
-        $commentForm->handleRequest($request);
-
-        if($commentForm->isSubmitted() && $commentForm->isValid()){
-            $manager = $this->getDoctrine()->getManager();
-            $manager->persist($comment);
-            $manager->flush();
+        if($this->getUser()){
+            $comment = new Comment($this->getUser(), $trick);
+            $commentForm = $this->createForm(CommentType::class, $comment);
+            $commentForm->handleRequest($request);
+            if($commentForm->isSubmitted() && $commentForm->isValid()){
+                $manager = $this->getDoctrine()->getManager();
+                $manager->persist($comment);
+                $manager->flush();
+            }
+            return $this->render('pages/showTrick.html.twig', [
+                'trick' => $trick,
+                'commentForm' => $commentForm->createView()
+            ]);
         }
 
+
         return $this->render('pages/showTrick.html.twig', [
-            'trick' => $trick,
-            'commentForm' => $commentForm->createView()
+            'trick' => $trick
         ]);
     }
 

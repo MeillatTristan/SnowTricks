@@ -2,15 +2,18 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Categories;
 use App\Entity\Trick;
 use App\Repository\CategoriesRepository;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 
-class TricksFixtures extends Fixture
+class TricksFixtures extends Fixture implements DependentFixtureInterface
 {
-    public function load(ObjectManager $manager, CategoriesRepository $categoriesRepository)
+    public function load(ObjectManager $manager)
     {
+
         $tricksArray = array(
             array('id' => '326','name' => 'mute','description' => 'saisie de la carre frontside de la planche entre les deux pieds avec la main avant','category_id' => '3','create_date' => '21-04-2021','date_update' => '21-04-2021'),
             array('id' => '327','name' => 'sad','description' => 'Aussi appelé melancholie ou style week, saisie de la carre backside de la planche, entre les deux pieds, avec la main avant','category_id' => '3','create_date' => '21-04-2021','date_update' => '21-04-2021'),
@@ -45,11 +48,18 @@ class TricksFixtures extends Fixture
               $trick->setName($trickArray['name']);
               $trick->setDescription($trickArray['description']);
               $trick->setCreateDate($trickArray['create_date']);
-              $trick->setCategory($categoriesRepository->find($trickArray['category_id']));
+              $trick->setCategory($this->getReference(CategoriesFixtures::class.'_'.$trickArray['category_id']));
               $trick->setDateUpdate($trickArray['date_update']);
               $manager->persist($trick);
           }
 
         $manager->flush();
+    }
+
+    public function getDependencies()
+    {
+        return [
+            CategoriesFixtures::class
+        ];
     }
 }

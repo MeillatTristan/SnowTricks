@@ -49,6 +49,8 @@ class TricksFixtures extends Fixture implements DependentFixtureInterface
               $trick->setDescription($trickArray['description']);
               $trick->setCreateDate($trickArray['create_date']);
               $trick->setCategory($this->getReference(CategoriesFixtures::class.'_'.$trickArray['category_id']));
+              $this->setReference(Trick::class.'_'.$trickArray['id'], $trick);
+
               $trick->setDateUpdate($trickArray['date_update']);
               $manager->persist($trick);
           }

@@ -31,6 +31,9 @@ class UsersFixtures extends Fixture
             $user->setRoles( $userArray['roles'] );
             $user->setUsername($userArray['username']);
             $user->setPhoto($userArray['photo']);
+            if($userArray['email'] == 'tristan.meillat28@gmail.com'){
+                $this->setReference("userAdmin", $user);
+            }
             $manager->persist($user);
         }
         $manager->flush();  

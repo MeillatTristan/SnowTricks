@@ -21,8 +21,8 @@ class CategoriesFixtures extends Fixture
         foreach ($categoriesArray as $categorieArray) {
             $categorie = new Categories();
             $categorie->setName($categorieArray['name']);
-            $manager->persist($categorie);
-            $this->setReference(Categories::class.'_'.$categorieArray['id'], $categorie); 
+            $this->setReference(Categories::class.'_'.$categorieArray['id'], $categorie);
+            $manager->persist($categorie);            
         }
 
         $manager->flush();

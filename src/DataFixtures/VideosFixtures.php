@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Trick;
 use App\Entity\Videos;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
@@ -33,7 +34,7 @@ class VideosFixtures extends Fixture
     public function getDependencies()
     {
         return [
-            TrickFixtures::class
+            TricksFixtures::class
         ];
     }
 }

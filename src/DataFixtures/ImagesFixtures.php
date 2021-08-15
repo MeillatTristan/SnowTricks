@@ -43,7 +43,7 @@ class ImagesFixtures extends Fixture
     public function getDependencies()
     {
         return [
-            TrickFixtures::class
+            TricksFixtures::class
         ];
     }
 }

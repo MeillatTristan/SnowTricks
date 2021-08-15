@@ -109,18 +109,18 @@ body{
   position: relative;
 }
 
-.containerBlockHeader .containerScrollTo{
+.containerScrollTo{
   position: absolute;
   bottom: 40px;
   right: 40px;
 }
 
-.containerBlockHeader .containerScrollTo i{
+.containerScrollTo i{
   font-size: 50px;
   color: black;
 }
 
-.containerBlockHeader .containerScrollTo i:hover{
+.containerScrollTo i:hover{
   color: #d40059;
   transition: 0.3s;
 }
@@ -850,6 +850,7 @@ body{
   padding: 10px 0;
   width: 100%;
   margin-bottom: 40px;
+  position: relative;
 }
 
 .ContainerLoadMore button{

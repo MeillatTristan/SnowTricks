@@ -10,7 +10,6 @@ use App\Form\CommentType;
 use App\Form\TrickType;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
-use Embera\Embera;
 use PhpParser\Node\Expr\Cast\String_;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -114,18 +113,21 @@ class TrickController extends AbstractController
             $comment = new Comment($this->getUser(), $trick);
             $commentForm = $this->createForm(CommentType::class, $comment);
             $commentForm->handleRequest($request);
+<<<<<<< HEAD
 
+=======
+>>>>>>> f90b8c65d7e32f06d463a866ea984fe2e03a347a
             if($commentForm->isSubmitted() && $commentForm->isValid()){
                 $manager = $this->getDoctrine()->getManager();
                 $manager->persist($comment);
                 $manager->flush();
             }
-
             return $this->render('pages/showTrick.html.twig', [
                 'trick' => $trick,
                 'commentForm' => $commentForm->createView()
             ]);
         }
+
 
         return $this->render('pages/showTrick.html.twig', [
             'trick' => $trick

@@ -13,8 +13,8 @@
       {% endif %}
       {% if app.user %}
       <div class="containerInput">
-        <a href="/tricks/{{trick.id}}/update"><i class="far fa-edit"></i></a>
-        <a href="/tricks/{{trick.id}}/delete" class="delete"
+        <a href="/tricks/{{trick.slug}}/update"><i class="far fa-edit"></i></a>
+        <a href="/tricks/{{trick.slug}}/delete" class="delete"
           onclick="return confirm('Etes-vous sur de vouloir supprimer ce tric');"><i class="far fa-trash-alt"></i></a>
       </div>
       {% endif %}

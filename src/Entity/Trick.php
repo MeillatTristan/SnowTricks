@@ -8,6 +8,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * @ORM\Entity(repositoryClass=TrickRepository::class)
@@ -63,6 +64,12 @@ class Trick
      */
     private $Comment;
 
+    /**
+     * @Gedmo\Slug(fields={"name"})
+     * @ORM\Column(length=128, unique=true)
+     */
+    private $slug;
+
     public function __construct()
     {
         $date = new \DateTime('now');
@@ -77,6 +84,18 @@ class Trick
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
+
+        return $this;
     }
 
     public function getName(): ?string

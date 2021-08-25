@@ -15,6 +15,7 @@
         "doctrine/orm": "^2.8",
         "mpratt/embera": "^2.0",
         "sensio/framework-extra-bundle": "^6.1",
+        "stof/doctrine-extensions-bundle": "^1.6",
         "symfony/apache-pack": "^1.0",
         "symfony/asset": "5.2.*",
         "symfony/console": "*",

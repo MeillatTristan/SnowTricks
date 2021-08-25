@@ -26,7 +26,7 @@
       {% endif %}
     </div>
     <div class="containerLink">
-      <a class="title" class="showTrick"  href="/tricks/{{ trick.id }}/show" name="{{ trick.id }}">{{ trick.name }}</a>
+      <a class="title" class="showTrick"  href="/tricks/{{ trick.slug }}/show" name="{{ trick.slug }}">{{ trick.name }}</a>
       {% if app.user %}
       <div class="containerInput">
         <a href="tricks/{{trick.id}}/update"><i class="far fa-edit"></i></a>

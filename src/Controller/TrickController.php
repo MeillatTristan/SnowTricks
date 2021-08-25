@@ -113,10 +113,6 @@ class TrickController extends AbstractController
             $comment = new Comment($this->getUser(), $trick);
             $commentForm = $this->createForm(CommentType::class, $comment);
             $commentForm->handleRequest($request);
-<<<<<<< HEAD
-
-=======
->>>>>>> f90b8c65d7e32f06d463a866ea984fe2e03a347a
             if($commentForm->isSubmitted() && $commentForm->isValid()){
                 $manager = $this->getDoctrine()->getManager();
                 $manager->persist($comment);
